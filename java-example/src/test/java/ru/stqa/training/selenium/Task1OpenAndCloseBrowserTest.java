@@ -9,7 +9,7 @@ public class Task1OpenAndCloseBrowserTest extends TestBase {
 
 
     @Test
-    public void myFirstTest() {
+    public void testOpenAndCloseBrowser() {
         driver.get("http://www.google.com/");
         driver.findElement(By.name("q")).sendKeys("webdriver");
         driver.findElement(By.name("btnK")).submit();
