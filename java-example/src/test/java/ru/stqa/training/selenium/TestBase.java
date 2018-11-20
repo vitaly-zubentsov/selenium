@@ -21,7 +21,7 @@ public class TestBase {
         if (browser.equals(BrowserType.CHROME)) {
             driver = new ChromeDriver();
         } else if (browser.equals(BrowserType.FIREFOX)){
-            FirefoxOptions options = new FirefoxOptions().setLegacy(true);
+            FirefoxOptions options = new FirefoxOptions().setLegacy(false);
             driver = new FirefoxDriver(options);
         } else{ if (browser.equals(BrowserType.EDGE))
             driver = new EdgeDriver();
