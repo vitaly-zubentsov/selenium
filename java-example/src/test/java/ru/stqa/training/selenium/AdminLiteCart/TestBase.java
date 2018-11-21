@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class TestBase {
     protected WebDriver driver;
     protected WebDriverWait wait;
-    String browser = BrowserType.FIREFOX;
+    String browser = BrowserType.CHROME;
 
 
     @Before
