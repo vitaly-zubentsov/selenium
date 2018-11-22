@@ -21,14 +21,16 @@ public class TestBase {
     public void start() {
         if (browser.equals(BrowserType.CHROME)) {
             driver = new ChromeDriver();
-        } else if (browser.equals(BrowserType.FIREFOX)){
+        } else if (browser.equals(BrowserType.FIREFOX)) {
             FirefoxOptions options = new FirefoxOptions().setLegacy(false);
             driver = new FirefoxDriver(options);
-        } else{ if (browser.equals(BrowserType.EDGE))
-            driver = new EdgeDriver();
+        } else if (browser.equals(BrowserType.EDGE)) {
+                driver = new EdgeDriver();
+            }
 
-        }
+
         wait = new WebDriverWait(driver, 10);
+        driver.manage().deleteAllCookies();
         driver.get("http://localhost/litecart/admin/login.php");
         driver.findElement(By.name("username")).sendKeys("admin");
         driver.findElement(By.name("password")).sendKeys("admin");
@@ -41,3 +43,4 @@ public class TestBase {
         driver = null;
     }
 }
+
