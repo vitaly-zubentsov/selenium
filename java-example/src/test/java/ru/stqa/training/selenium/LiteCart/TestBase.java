@@ -13,21 +13,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class TestBase {
     protected WebDriver driver;
     protected WebDriverWait wait;
-    String browser = BrowserType.FIREFOX;
-
+    String browser = BrowserType.CHROME;
 
     @Before
     public void start() {
         if (browser.equals(BrowserType.CHROME)) {
             driver = new ChromeDriver();
-        } else if (browser.equals(BrowserType.FIREFOX)){
+        } else if (browser.equals(BrowserType.FIREFOX)) {
             FirefoxOptions options = new FirefoxOptions().setLegacy(false);
             driver = new FirefoxDriver(options);
-        } else{ if (browser.equals(BrowserType.EDGE))
+        } else if (browser.equals(BrowserType.EDGE)) {
             driver = new EdgeDriver();
-
         }
+
+
         wait = new WebDriverWait(driver, 10);
+        driver.manage().deleteAllCookies();
         driver.get("http://localhost/litecart/");
     }
 
