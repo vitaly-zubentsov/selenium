@@ -2,12 +2,12 @@ package ru.stqa.training.selenium.adminLiteCart.data;
 
 public class CountriesData {
 
-    int id;
+    int numberOfzones;
     String nameOfCountry;
 
-    public CountriesData(int id, String nameOfCountry){
-         this.nameOfCountry = nameOfCountry;
-         this.id = id;
+    public CountriesData(int numberOfzones, String nameOfCountry) {
+        this.numberOfzones = numberOfzones;
+        this.nameOfCountry = nameOfCountry;
     }
 
 }
