@@ -1,4 +1,4 @@
-package ru.stqa.training.selenium.LiteCart;
+package ru.stqa.training.selenium.liteCart;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
