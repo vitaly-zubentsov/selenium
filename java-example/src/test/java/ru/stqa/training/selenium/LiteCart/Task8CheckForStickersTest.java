@@ -15,7 +15,7 @@ public class Task8CheckForStickersTest extends TestBase {
         int numberOfProducts = driver.findElements(By.cssSelector("div.content .link")).size();
         for (int i = 0; i < numberOfProducts; i++) {
 
-            List<WebElement> arrayOfproducts = driver.findElements(By.cssSelector("div.content .link"));
+            List<WebElement> arrayOfproducts = driver.findElements(By.cssSelector(".product.column.shadow.hover-light"));
             List<WebElement> arrayOfstickers = arrayOfproducts.get(i).findElements(By.cssSelector("[class ^= sticker]"));
             assertTrue(arrayOfstickers.size() == 1);
 
