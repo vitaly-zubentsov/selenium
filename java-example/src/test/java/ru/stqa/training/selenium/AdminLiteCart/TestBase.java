@@ -25,8 +25,8 @@ public class TestBase {
             FirefoxOptions options = new FirefoxOptions().setLegacy(false);
             driver = new FirefoxDriver(options);
         } else if (browser.equals(BrowserType.EDGE)) {
-                driver = new EdgeDriver();
-            }
+            driver = new EdgeDriver();
+        }
 
 
         wait = new WebDriverWait(driver, 10);
