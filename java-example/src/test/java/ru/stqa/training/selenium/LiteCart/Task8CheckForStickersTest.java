@@ -12,12 +12,10 @@ public class Task8CheckForStickersTest extends TestBase {
 
     @Test
     public void testCheckForStickers() {
-        int numberOfProducts = driver.findElements(By.cssSelector("div.content .link")).size();
-        for (int i = 0; i < numberOfProducts; i++) {
-
-            List<WebElement> arrayOfproducts = driver.findElements(By.cssSelector("div.content .link"));
-            List<WebElement> arrayOfstickers = arrayOfproducts.get(i).findElements(By.cssSelector("[class ^= sticker]"));
-            assertTrue(arrayOfstickers.size() == 1);
+        List<WebElement> arrayOfProducts = driver.findElements(By.cssSelector(".product.column.shadow.hover-light"));
+        for (int i = 0; i < arrayOfProducts.size(); i++) {
+            List<WebElement> arrayOfStickers = arrayOfProducts.get(i).findElements(By.cssSelector("[class ^= sticker]"));
+            assertTrue(arrayOfStickers.size() == 1);
 
         }
     }
