@@ -4,14 +4,13 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 
 public class Task10ProductOpenPageTest extends TestBase {
     @Test
-    public void testCheckForStickers() {
+    public void testProductOpenPage() {
         WebElement checkingProduct = driver.findElement(By.cssSelector("#box-campaigns .product.column.shadow.hover-light"));
         String nameOfProduct = checkingProduct.findElement(By.cssSelector("div.name")).getText();
         List<String> PricesOfProduct = getPricesList(checkingProduct, By.cssSelector("div > [class *= price]"));
