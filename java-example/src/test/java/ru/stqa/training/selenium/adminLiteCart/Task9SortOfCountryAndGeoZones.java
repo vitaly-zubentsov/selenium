@@ -55,35 +55,5 @@ public class Task9SortOfCountryAndGeoZones extends TestBase {
 
     }
 
-    private List<String> getListOfZonesForGeoZones() {
-        List<String> listOfZones = new ArrayList<String>();
-        List<WebElement> webElementsOfZones = driver.findElements(By.cssSelector("[name *= zone_code ] [selected]"));
-        for (WebElement webElement : webElementsOfZones) {
-            String name = webElement.getText();
-            listOfZones.add(name);
-        }
-        return listOfZones;
-    }
 
-
-    private List<String> getListOfZonesForCountry() {
-        List<String> listOfZones = new ArrayList<String>();
-        List<WebElement> webElementsOfZones = driver.findElements(By.cssSelector("[type*=hidden][name *= name ]"));
-        for (WebElement webElement : webElementsOfZones) {
-            String name = webElement.getAttribute("value");
-            listOfZones.add(name);
-        }
-        return listOfZones;
-    }
-
-
-    public List<String> getListOfNameForCountries() {
-        List<String> listOfCountries = new ArrayList<String>();
-        List<WebElement> webElements = driver.findElements(By.cssSelector("tr.row"));
-        for (WebElement webElement : webElements) {
-            String name = webElement.findElement(By.cssSelector("a")).getText();
-            listOfCountries.add(name);
-        }
-        return listOfCountries;
-    }
 }

@@ -29,9 +29,5 @@ public class Task7MoveToAllSectionsTest extends TestBase {
         }
     }
 
-    private boolean isElementsPresent(By locator) {
-        return driver.findElements(locator).size() > 0;
-    }
-
 }
 

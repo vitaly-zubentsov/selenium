@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class Task11RegistrationOfUserTest extends TestBase {
     @Test
-    public void testCheckForStickers() {
+    public void testRegistrationOfUserTest() {
         driver.findElement(By.cssSelector("[href *= create_account]")).click();
         actionWithDropDownList(By.cssSelector("select[name = country_code]"), "US");
         driver.findElement(By.cssSelector("[name=firstname]")).sendKeys("Test");
