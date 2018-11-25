@@ -7,19 +7,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
+
+import static junit.framework.TestCase.assertTrue;
 
 public class Task12AddingNewProductTest extends TestBase {
 
     @Test
     public void testAddingNewProduct() {
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         driver.findElement(By.cssSelector(" a[href*=catalog]")).click();
+        int numberOfProductBeforeAdding = driver.findElements(By.cssSelector("table.dataTable tr.row")).size();
 
         driver.findElement(By.cssSelector("a.button[href*=edit_product]")).click();
         driver.findElement(By.cssSelector("input[type=radio]")).click();
         driver.findElement(By.cssSelector("input[name*=name]")).sendKeys("Batman Duck");
         driver.findElement(By.cssSelector("input[name=code]")).sendKeys("12");
-        driver.findElement(By.cssSelector("[data-name*=Rubber]")).click();
-        actionWithDropDownList(By.cssSelector("select[name=default_category_id]"), "1");
         driver.findElements(By.cssSelector("[name *= product_groups]")).get(2).click();
         driver.findElement(By.cssSelector("[name=quantity]")).clear();
         driver.findElement(By.cssSelector("[name=quantity]")).sendKeys("300");
@@ -33,7 +37,8 @@ public class Task12AddingNewProductTest extends TestBase {
         actionWithDropDownList(By.cssSelector("[name=manufacturer_id]"), "1");
         driver.findElement(By.cssSelector("[name = keywords]")).sendKeys("Batman Duck");
         driver.findElement(By.cssSelector("[name *= short]")).sendKeys("Batman");
-        driver.findElement(By.cssSelector(".trumbowyg-editor")).sendKeys("Batman Duck has been Gotham's protector for months, CEO of Wayne Enterprises, Patriarch of the Duck Family and veteran member of the Justice League.");
+        driver.findElement(By.cssSelector(".trumbowyg-editor")).sendKeys("Batman Duck has been Gotham's " +
+                "protector for months, CEO of Wayne Enterprises, Patriarch of the Duck Family and veteran member of the Justice League.");
         driver.findElement(By.cssSelector("[name *= head]")).sendKeys("BatmanD");
         driver.findElement(By.cssSelector("[name *= meta]")).sendKeys("BD");
 
@@ -44,6 +49,9 @@ public class Task12AddingNewProductTest extends TestBase {
         driver.findElement(By.cssSelector("[type=text][name *= USD]")).sendKeys("25");
 
         driver.findElement(By.cssSelector("button[type=submit][name = save]")).click();
+        int numberOfProductAfterAdding = driver.findElements(By.cssSelector("table.dataTable tr.row")).size();
+        assertTrue(numberOfProductAfterAdding == (numberOfProductBeforeAdding + 1));
+
     }
 
     private void actionWithDropDownList(By locatorOfDropDownList, String selectByValue) {
