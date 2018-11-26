@@ -18,7 +18,7 @@ import java.util.List;
 public class TestBase {
     protected WebDriver driver;
     protected WebDriverWait wait;
-    String browser = BrowserType.CHROME;
+    String browser = BrowserType.FIREFOX;
 
 
     @Before
