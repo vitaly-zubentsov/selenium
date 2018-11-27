@@ -1,15 +1,14 @@
-package ru.stqa.training.selenium.PageObjects;
+package ru.stqa.training.selenium.pageObjects.tests;
 
 import org.junit.Test;
-import org.openqa.selenium.By;
 
-public class Task13WorkingWithCartTest extends TestBase {
+public class Task19WorkingWithCartTest extends TestBase {
 
     @Test
     public void testWorkingWithCart() {
 
         for (int i = 1; i <= 3; i++) {
-            app.addOneProductToCart(By.cssSelector(".product"), "Medium");
+            app.addOneProductToCart("Medium");
         }
         app.goToCart();
         for (int i = 1; i <= 3; i++) {

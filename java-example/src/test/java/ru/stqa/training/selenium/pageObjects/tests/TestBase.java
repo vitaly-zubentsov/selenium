@@ -1,7 +1,8 @@
-package ru.stqa.training.selenium.PageObjects;
+package ru.stqa.training.selenium.pageObjects.tests;
 
 import org.junit.After;
 import org.junit.Before;
+import ru.stqa.training.selenium.pageObjects.app.Application;
 
 public class TestBase {
 
