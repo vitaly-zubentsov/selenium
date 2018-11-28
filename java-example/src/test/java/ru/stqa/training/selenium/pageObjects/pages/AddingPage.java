@@ -20,15 +20,7 @@ public class AddingPage {
         return driver.findElements(locator).size() > 0;
     }
 
-    public void actionWithDropDownList(By locatorOfDropDownList, String selectByValue) {
-        WebElement webElementContainingDropDownList = driver.findElement(locatorOfDropDownList);
-        Select select = new Select(webElementContainingDropDownList);
-        select.selectByValue(selectByValue);
-    }
 
-    public void waitUntilProductAddingToCart(int numberOfProductsAfterAdding) {
-        wait.until(ExpectedConditions.attributeContains(By.cssSelector("span.quantity"), "textContent", String.valueOf(numberOfProductsAfterAdding)));
-    }
 
     public WebElement addProductForCart() {
         return driver.findElement(By.cssSelector("[name=add_cart_product"));
@@ -48,5 +40,15 @@ public class AddingPage {
 
     public void goToBack() {
         driver.navigate().back();
+    }
+
+    public void actionWithDropDownList(By locatorOfDropDownList, String selectByValue) {
+        WebElement webElementContainingDropDownList = driver.findElement(locatorOfDropDownList);
+        Select select = new Select(webElementContainingDropDownList);
+        select.selectByValue(selectByValue);
+    }
+
+    public void waitUntilProductAddingToCart(int numberOfProductsAfterAdding) {
+        wait.until(ExpectedConditions.attributeContains(By.cssSelector("span.quantity"), "textContent", String.valueOf(numberOfProductsAfterAdding)));
     }
 }
